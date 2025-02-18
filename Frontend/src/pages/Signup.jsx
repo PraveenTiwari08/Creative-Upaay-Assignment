@@ -12,7 +12,8 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/signup", formData);
+      // await axios.post("http://localhost:5000/api/auth/signup", formData);
+      await axios.post("https://creative-upaay-assignment.onrender.com/api/auth/signup", formData);
       toast.success("Signup Successful! Please Login.");
       navigate("/login");
     } catch (error) {
