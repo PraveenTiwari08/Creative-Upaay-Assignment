@@ -27,8 +27,8 @@ function Navbar() {
 
   // Handle Logout
   const handleLogout = () => {
-    dispatch(logout()); // ✅ Clear Redux state
-    navigate("/login"); // ✅ Redirect to login
+    dispatch(logout()); //  Clear Redux state
+    navigate("/login"); //  Redirect to login
   };
 
   return (

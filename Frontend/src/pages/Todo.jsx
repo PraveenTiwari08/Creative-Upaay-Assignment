@@ -57,7 +57,7 @@ function Todo() {
         width={1190}
         ml={-50}
         mt="80px" // Navbar ki height ke barabar margin-top
-        pb="20px" // Extra padding neeche
+        pb="20px" 
       >
         {["todo", "inProgress", "done"].map((listKey, index) => {
           let filteredTasks = [...tasks[listKey]];

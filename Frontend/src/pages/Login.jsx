@@ -16,13 +16,13 @@ function Login() {
     e.preventDefault();
     
     if (!formData.email || !formData.password) {
-        toast.error("Email and Password are required!"); // ✅ Show error if fields are empty
+        toast.error("Email and Password are required!"); //  Show error if fields are empty
         return;
     }
 
     try {
         const res = await axios.post("http://localhost:5000/api/auth/login", {
-            email: formData.email.trim(), // ✅ Trim extra spaces
+            email: formData.email.trim(), //  Trim extra spaces
             password: formData.password,
         });
 
@@ -30,7 +30,7 @@ function Login() {
         toast.success("Login Successful!");
         navigate("/");
     } catch (error) {
-        toast.error(error.response?.data?.error || "Login Failed!"); // ✅ Show backend error message
+        toast.error(error.response?.data?.error || "Login Failed!"); //  Show backend error message
     }
 };
 

@@ -37,10 +37,10 @@ function SideBar() {
           height: "100vh",
           boxSizing: "border-box",
           padding: 2,
-          overflowY: "auto", // ✅ Enable vertical scrolling
-          scrollbarWidth: "none", // ✅ Hide scrollbar (Firefox)
+          overflowY: "auto", //  Enable vertical scrolling
+          scrollbarWidth: "none", //  Hide scrollbar (Firefox)
           "&::-webkit-scrollbar": {
-            display: "none", // ✅ Hide scrollbar (Chrome, Safari)
+            display: "none", //  Hide scrollbar (Chrome, Safari)
           },
           mt: 8.7, // Ensure the drawer itself is also pushed down
         },
@@ -102,7 +102,7 @@ function SideBar() {
             <ListItem
               key={index}
               component={Link} // ✅ Keep using React Router Link
-              to={`/projects/${project.toLowerCase().replace(/\s+/g, "-")}`} // ✅ Dynamic URL
+              to={`/projects/${project.toLowerCase().replace(/\s+/g, "-")}`} // Dynamic URL
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
