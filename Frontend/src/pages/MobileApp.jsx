@@ -9,7 +9,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import WindowIcon from "@mui/icons-material/Window";
 import PauseIcon from "@mui/icons-material/Pause";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import Todo from "./todo";
+import Todo from "./Todo";
 import { useDispatch, useSelector } from "react-redux";
 import { setStatus, setDate } from "../redux/filterSlice";
 
