@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000"; // Get API base URL from .env
+const API_BASE_URL = import.meta.env.REACT_APP_BASE_URL || "http://localhost:5000"; // Get API base URL from .env
 
 function Signup() {
   const navigate = useNavigate();
