@@ -7,6 +7,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const API_BASE_URL = process.env.REACT_APP_BASE_URL; // ✅ Get API base URL from .env
+
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,46 +16,49 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
+
     if (!formData.email || !formData.password) {
-        toast.error("Email and Password are required!"); //  Show error if fields are empty
-        return;
+      toast.error("Email and Password are required!"); 
+      return;
     }
 
     try {
-        const res = await axios.post("http://localhost:5000/api/auth/login", {
-        // const res = await axios.post("https://creative-upaay-assignment.onrender.com/api/auth/login", {
-            email: formData.email.trim(), //  Trim extra spaces
-            password: formData.password,
-        });
+      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, {
+        email: formData.email.trim(),
+        password: formData.password,
+      });
 
-        dispatch(login(res.data));
-        toast.success("Login Successful!");
-        navigate("/");
+      dispatch(login(res.data));
+      toast.success("Login Successful!");
+      navigate("/");
     } catch (error) {
-        toast.error(error.response?.data?.error || "Login Failed!"); //  Show backend error message
+      toast.error(error.response?.data?.error || "Login Failed!");
     }
-};
+  };
 
   return (
     <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
       <Paper sx={{ padding: 4, width: 350 }}>
-        <Typography variant="h5" fontWeight="bold" textAlign="center">Login</Typography>
+        <Typography variant="h5" fontWeight="bold" textAlign="center">
+          Login
+        </Typography>
         <form onSubmit={handleLogin}>
-          <TextField 
-            label="Email" 
-            fullWidth 
-            margin="normal" 
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
+          <TextField
+            label="Email"
+            fullWidth
+            margin="normal"
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           />
-          <TextField 
-            label="Password" 
-            type="password" 
-            fullWidth 
-            margin="normal" 
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })} 
+          <TextField
+            label="Password"
+            type="password"
+            fullWidth
+            margin="normal"
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>Login</Button>
+          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
+            Login
+          </Button>
         </form>
         <Typography mt={2} textAlign="center">
           Don't have an account? <a href="/signup">Sign Up</a>
