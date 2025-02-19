@@ -10,6 +10,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// backend Check Route
+app.get("/", (req, res) => {
+    res.send("🚀 Backend is running successfully!");
+});
+
 // Routes
 app.use("/api/auth", authRoutes);
 
