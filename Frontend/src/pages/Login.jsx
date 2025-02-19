@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const API_BASE_URL = process.env.REACT_APP_BASE_URL; // ✅ Get API base URL from .env
+const API_BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:5000"; //  Get API base URL from .env
 
 function Login() {
   const dispatch = useDispatch();
